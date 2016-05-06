@@ -1,0 +1,31 @@
+extends ./layouts/layout.jade
+block csslink
+	link(href='dist/css/articleForm.min.css', rel='stylesheet')
+block bottomScript
+	script(src="dist/lib/js/RequireJS-2.1.11.js",data-main="dist/js/articleForm.js")
+block main
+	form.article-form.col-md-12
+		.row
+			.col-md-4.col-xs-12.col-sm-6
+				.form-group
+					label(for='title') 标题
+					input#title.form-control(type='text', placeholder='请输入标题')
+				.form-group
+					label(for='') 文章描述
+					textarea.form-control(rows="3",placeholder='请输入文章描述')
+				.form-group
+					label(for='exampleInputEmail1') Email address
+					input#exampleInputEmail1.form-control(type='email', placeholder='Email')
+			.col-md-4.col-xs-12.col-sm-6
+				.form-group 
+					label(for='author') 作者
+					input#author.form-control(type='text', placeholder='请输入作者名字')
+			.col-md-4.col-xs-12.col-sm-6				
+				.form-group
+					label(for='articleType') 文章类型
+					select#articleType.form-control
+						option 类型一
+		.row
+			.col-md-12
+				label(for='content') 文章内容
+				script#editor(name="content" type="text/plain")

@@ -1,7 +1,7 @@
 {
-  "name": "webDemo",
+  "name": "School_PC",
   "version": "0.0.0",
-  "description": "a web demo",
+  "description": "School_PC website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,15 +15,13 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^1.5.3",
     "gulp-autoprefixer": "^2.1.0",
-    "gulp-rename": "^1.2.2"
+    "gulp-rename": "^1.2.2",
+    "requirejs": "^2.2.0"
   },
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/Hx2heng/webDemo.git"
+    "url": ""
   },
-  "bugs": {
-    "url": "https://github.com/Hx2heng/webDemo/issues"
-  },
-  "homepage": "https://github.com/Hx2heng/webDemo"
+  "homepage": ""
 }

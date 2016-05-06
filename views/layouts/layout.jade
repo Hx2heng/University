@@ -1,13 +1,27 @@
 doctype html
 html(lang="en")
   head
-    title Index
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='大学无忧')
+    meta(name='author', content='XinZheng,Huang')
+    link(rel='icon', href='./favicon.ico')
+    title 大学无忧2
     link(href="dist/lib/css/bootstrap.min.css" rel="stylesheet")
-    block link
+    link(href="dist/css/dashboard.min.css" rel="stylesheet")
+    link(href='dist/css/base.css', rel='stylesheet')
+    link(href='dist/css/common.css', rel='stylesheet')
+    block csslink
     block topScript
   body
     include header.jade
-    block main
-    include footer.jade
+    .container-fluid
+        .row
+            include leftSide.jade
+            div#main-content.col-sm-9.col-sm-offset-3.col-md-9.col-md-offset-3
+                div.row
+                    block main
+        .row
+            include footer.jade
     block bottomScript
-    script(src="dist/lib/js/jquery.min.js")

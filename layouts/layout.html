@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Index</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="大学无忧">
+    <meta name="author" content="XinZheng,Huang">
+    <link rel="icon" href="./favicon.ico">
+    <title>大学无忧2</title>
     <link href="dist/lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="dist/css/dashboard.min.css" rel="stylesheet">
+    <link href="dist/css/base.css" rel="stylesheet">
+    <link href="dist/css/common.css" rel="stylesheet">
   </head>
   <body>
-    <div class="header">there is header.</div>
-    <div class="footer">there is footer.</div>
-    <script src="dist/lib/js/jquery.min.js"></script>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header"><a href="#" class="navbar-brand">大学无忧公众号管理系统</a>
+          <button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-user"></span> 文章发布</a></li>
+            <li><a href="#">微信管理</a></li>
+            <li><a href="#">系统管理</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-3 left-side">
+          <ol class="breadcrumb new-breadcrumb">
+            <li><a href="#">文章发布</a></li>
+            <li class="active">新建文章</li>
+          </ol>
+          <ul class="nav nav-pills nav-stacked left-side-nav">
+            <li class="active"><a id="addressBook" href="#"><span aria-hidden="true" class="glyphicon glyphicon-search"></span> 文章列表<span class="sr-only">(current)</span></a></li>
+            <li><a href="#"><span aria-hidden="true" class="glyphicon glyphicon-cog"></span> 设置</a></li>
+            <li><a href="#">其他</a></li>
+          </ul>
+        </div>
+        <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3">
+          <div class="row">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12 footer">
+          <ul class="nav navbar-nav navbar-right footer-nav">
+            <li><a href="#">技术咨询/建议</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
