@@ -4,6 +4,11 @@ requirejs.config({
 		bootstrap: '../lib/js/bootstrap.min',
 		ueditor:'../lib/js/ueditor.all.min',
 		ueditorconfig:'../lib/js/ueditor.config'
+	},
+	shim:{
+		bootstrap:{
+			deps:['jquery']
+		}
 	}
 });
 
