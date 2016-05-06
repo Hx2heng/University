@@ -1,0 +1,13 @@
+doctype html
+html(lang="en")
+  head
+    title Index
+    link(href="dist/lib/css/bootstrap.min.css" rel="stylesheet")
+    block link
+    block topScript
+  body
+    include header.jade
+    block main
+    include footer.jade
+    block bottomScript
+    script(src="dist/lib/js/jquery.min.js")

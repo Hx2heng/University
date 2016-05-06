@@ -1,32 +1,23 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    coffee = require('gulp-coffee'),
-    jade = require('gulp-jade');
+    jade = require('gulp-jade'),
+    notify = require('gulp-notify'), 
     autoprefixer = require("gulp-autoprefixer"),
     minifycss = require('gulp-minify-css'),
-    uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    notify = require('gulp-notify'),
-    del = require('del');
+    uglify = require('gulp-uglify');
 
 gulp.task('styles',function(){
-  gulp.src('./src/sass/*.scss')
-    .pipe(sass())
+  gulp.src('./src/css/*.css')
     .pipe(autoprefixer('last 2 version'))
-    .pipe(concat('main.css'))
     .pipe(gulp.dest('./dist/css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('./dist/css'))
     .pipe(notify('Style task complete'))
-
 })
 
 gulp.task('scripts',function(){
-  gulp.src('./src/coffee/*.coffee')
-    .pipe(coffee({bare: true}))
-    .pipe(concat('main.js'))
+  gulp.src('./src/js/*.js')
     .pipe(gulp.dest('./dist/js'))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
@@ -35,16 +26,22 @@ gulp.task('scripts',function(){
 })
 
 gulp.task('templates', function() {
-  var YOUR_LOCALS = {};
+  var options = {pretty: true};
  
-  gulp.src(['./views/*.jade','./views/*/*.jade'])
-    .pipe(jade({
-      locals: YOUR_LOCALS
-    }))
+  gulp.src('./views/*.jade')
+    .pipe(jade(options))
     .pipe(gulp.dest('./'))
     .pipe(notify("Templates task complete"))
 });
 
+gulp.task('templatesLayouts', function() {
+  var options = {pretty: true};
+ 
+  gulp.src('./views/layouts/*.jade')
+    .pipe(jade(options))
+    .pipe(gulp.dest('./layouts'))
+    .pipe(notify("templatesLayouts task complete"))
+});
 
 
 
@@ -58,8 +55,9 @@ gulp.task('default',['clean'],function(){
 })
 
 gulp.task('watch',function(){
-  gulp.watch('./src/sass/*.scss',['styles']);
-  gulp.watch('./src/coffee/*.coffee',['scripts']);
-  gulp.watch(['./views/*.jade','./views/*/*.jade'],['templates']);
+  gulp.watch('./src/css/*.css',['styles']);
+  gulp.watch('./src/js/*.js',['scripts']);
+  //gulp.watch(,['templates']);
+  gulp.watch(['./views/layouts/*.jade','./views/*.jade'],['templatesLayouts','templates']);
 })
 
