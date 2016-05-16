@@ -83,5 +83,8 @@
       "fonts",
       "js"
     ]
+  },
+  "dependencies": {
+    "npm-shrinkwrap": "^200.5.1"
   }
 }

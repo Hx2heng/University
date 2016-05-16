@@ -55,9 +55,9 @@ gulp.task('default',['clean'],function(){
 })
 
 gulp.task('watch',function(){
-  gulp.watch('./src/css/*.css',['styles']);
-  gulp.watch('./src/js/*.js',['scripts']);
+  //gulp.watch('./src/css/*.css',['styles']);
+  //gulp.watch('./src/js/*.js',['scripts']);
   //gulp.watch(,['templates']);
-  gulp.watch(['./views/layouts/*.jade','./views/*.jade'],['templatesLayouts','templates']);
+  gulp.watch(['./views/layouts/*.jade','./views/*.jade','./src/css/*.css','./src/js/*.js'],['templatesLayouts','templates','styles','scripts']);
 })
 

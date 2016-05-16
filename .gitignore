@@ -1,2 +1,8 @@
 node_modules
-.sass-cache
+.bowerrc
+bower.json
+gulpfile.js
+package.json
+lib
+src
+views

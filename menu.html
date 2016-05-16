@@ -8,7 +8,10 @@
     <meta name="author" content="XinZheng,Huang">
     <link rel="icon" href="./favicon.ico">
     <title>大学无忧2</title>
-    <link href="dist/css/articleForm.min.css" rel="stylesheet">
+    <link href="dist/lib/css/messenger-theme-flat.css" rel="stylesheet">
+    <link href="dist/lib/css/messenger.css" rel="stylesheet">
+    <link href="dist/lib/css/jquery.dad.css" rel="stylesheet">
+    <link href="dist/css/menu.min.css" rel="stylesheet">
     <link href="dist/lib/css/bootstrap.min.css" rel="stylesheet">
     <link href="dist/css/dashboard.min.css" rel="stylesheet">
     <link href="dist/css/base.css" rel="stylesheet">
@@ -44,40 +47,37 @@
         </div>
         <div id="main-content" class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3">
           <div class="row">
-            <form class="article-form col-md-12">
-              <div class="row">
-                <div class="col-md-4 col-xs-12 col-sm-6">
-                  <div class="form-group">
-                    <label for="title">标题</label>
-                    <input id="title" type="text" placeholder="请输入标题" class="form-control">
-                  </div>
-                  <div class="form-group">
-                    <label for="">文章描述</label>
-                    <textarea rows="3" placeholder="请输入文章描述" class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-6">
-                  <div class="form-group"> 
-                    <label for="author">作者</label>
-                    <input id="author" type="text" placeholder="请输入作者名字" class="form-control">
-                  </div>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-6">				
-                  <div class="form-group">
-                    <label for="articleType">文章类型</label>
-                    <select id="articleType" class="form-control">
-                      <option>类型一</option>
-                    </select>
+            <div class="col-sm-12 col-md-12 main-right">
+              <div class="menu-right">
+                <div class="panel-top">菜单预览</div>
+                <div class="menu-preview">
+                  <div class="menu-demo">
+                    <ul class="demo-1-ul">
+                      <li class="demo-1-li">
+                        <p>更新中</p>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <label for="content">文章内容</label>
-                  <script id="editor" name="content" type="text/plain"></script>
+              <div class="menu-left">
+                <div class="panel-top">自定义菜单</div>
+                <div class="menu-setborad">
+                  <div role="group" aria-label="..." class="btn-group btn-group-justified">
+                    <div role="group" class="btn-group">
+                      <button id="save" type="button" class="btn btn-success"><span aria-hidden="true" class="glyphicon glyphicon-ok"></span> 保存</button>
+                    </div>
+                    <div role="group" class="btn-group">
+                      <button id="reduction" type="button" class="btn btn-info"><span aria-hidden="true" class="glyphicon glyphicon-repeat"></span> 还原</button>
+                    </div>
+                    <div role="group" class="btn-group">
+                      <button id="cancel" type="button" class="btn btn-danger"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span> 取消</button>
+                    </div>
+                  </div>
+                  <div class="setul"></div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -89,6 +89,6 @@
         </div>
       </div>
     </div>
-    <script src="dist/lib/js/RequireJS-2.1.11.js" data-main="dist/js/articleForm.js"></script>
+    <script src="dist/lib/js/RequireJS-2.1.11.js" data-main="dist/js/menu.js"></script>
   </body>
 </html>
