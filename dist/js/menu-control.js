@@ -18,7 +18,7 @@ define(['jquery', 'dad'], function($, dad) {
                 valt: 1
             }, {
                 name: "类型二",
-                valt: 0
+                valt: 2
             }],
             limit: [3, 4]
         };
@@ -58,9 +58,9 @@ define(['jquery', 'dad'], function($, dad) {
             this.options = ''; //类型设置
             for (var i = 0; i < CFG.type.length; i++) {
                 this.options = this.options + '<option>' + CFG.type[i].name + '</option>';
-                if (CFG.type[i].valt == 0)
-                    CFG.type[i].valn = 'key';
                 if (CFG.type[i].valt == 1)
+                    CFG.type[i].valn = 'key';
+                if (CFG.type[i].valt == 2)
                     CFG.type[i].valn = 'url';
             }
 
@@ -190,14 +190,22 @@ define(['jquery', 'dad'], function($, dad) {
                 if (!text && text == '') {
                     alert('请输入菜单名');
                 } else {
+                    if($(this).parents('.li-set').eq(0).siblings('.list-group').find('.li-2-content').html()){
+                        data_type.text("默认");
+                        data_val.text("");
+                        type_index.attr("type-index", 0);
+                    }
+                    else{
+                        data_type.text(option);
+                        data_val.text(val);
+                        type_index.attr("type-index", index);
+                    }
                     data_text.text(text);
-                    data_type.text(option);
-                    data_val.text(val);
-                    type_index.attr("type-index", index);
 
                     $(this).parents('.li-set').slideUp();
                     $(this).parents('.li-set').siblings('.li-data').slideDown();
                 }
+                
                 _this.outData();
                 _this.fire('dataChange');
             });
@@ -218,6 +226,7 @@ define(['jquery', 'dad'], function($, dad) {
                     //alert('一级菜单最多'+_this.config.limit[0]+'项');
                     _this.fire("overlimit1", _this.config.limit[0]);
                 } else {
+                    console.log('hellow');
                     $('.ul-1').find('.li-1-content').append("<li class='list-group-item li-1' type-index='0'><div class ='li-data'><p><span class='data-text'>新菜单</span><span class='data-type'>" + _this.config.type[0].name + "</span></p><div class='icon-btn-group'> <span class='glyphicon glyphicon-pencil icon-btn edit' aria-hidden='true'></span><span class='glyphicon glyphicon-move icon-btn dad1' aria-hidden='true'></span><span class='glyphicon glyphicon-trash icon-btn delete' aria-hidden='true'></span></div></div><div class='li-set' ><div class='input-group'><input type='text' class='form-control text' placeholder='1'><span class='input-group-btn'><button class='btn btn-default confirm' type='button'>确定</button><button class='btn btn-default cancel' type='button'>取消</button></span></div><div class='input-group li-type-set'><span class='input-group-btn'><select class='form-control data-option' style='width: auto;'>" + this.options + "</select></span><input type='text' class='form-control val' placeholder='1' val=''></div></div></div><ul class='list-group ul-2'><div class='ul-title'><p>二级菜单</p><div class='icon-btn-group'><span class='glyphicon glyphicon-plus icon-btn' aria-hidden='true'></span></div></div><div class='li-2-content'></div></ul></li>");
                     _this.control();
                     _this.fire('dataChange');
@@ -231,6 +240,9 @@ define(['jquery', 'dad'], function($, dad) {
                     //alert('二级菜单最多'+_this.config.limit[1]+'项');
                     _this.fire("overlimit2", _this.config.limit[1]);
                 } else {
+                   $(this).parents('.ul-2').parents('li').find('.data-type').eq(0).html('默认');
+                   $(this).parents('.ul-2').parents('li').attr("type-index",0);
+                    console.log( $(this).parents('.ul-2').parents('li').find('.data-type').eq(0).html());
                     $(this).parents('.ul-2').find('.li-2-content').append("<li class='list-group-item li-2' type-index='0'><div class ='li-data'><p><span class='data-text'>新菜单</span><span class='data-type'>" + _this.config.type[0].name + "</span></p><div class='icon-btn-group'> <span class='glyphicon glyphicon-pencil icon-btn edit' aria-hidden='true'></span><span class='glyphicon glyphicon-move icon-btn dad' aria-hidden='true'></span><span class='glyphicon glyphicon-trash icon-btn delete' aria-hidden='true'></span></div></div><div class='li-set' ><div class='input-group'><input type='text' class='form-control text' placeholder='1'><span class='input-group-btn'><button class='btn btn-default confirm' type='button'>确定</button><button class='btn btn-default cancel' type='button'>取消</button></span></div><div class='input-group li-type-set'><span class='input-group-btn'><select class='form-control data-option' style='width: auto;'>" + this.options + "</select></span><input type='text' class='form-control val' placeholder='1' val=''></div></div></li>");
                     _this.control();
                     _this.fire('dataChange');
